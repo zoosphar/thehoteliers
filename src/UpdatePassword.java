@@ -233,7 +233,7 @@ public class UpdatePassword extends javax.swing.JFrame {
         String old_pass_st = old_pass.getText();
         String new_pass_st = new_pass.getText();
         String retype_pass_st = retype_pass.getText();
-        if(new_pass_st.equals(old_pass_st)){
+        if(new_pass_st.equals(retype_pass_st)){
            try{
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/hms?autoReconnect=true&useSSL=false", "root", "aman123456");
@@ -247,6 +247,8 @@ public class UpdatePassword extends javax.swing.JFrame {
                     if(rs2.getString("emp_pass").equals(old_pass_st)){
                         q = "update employee set emp_pass = '"+ new_pass_st +"'";
                             int rs3 = st.executeUpdate(q);
+                             JOptionPane.showMessageDialog(null, "Created Customer Successfully");
+                             UpdatePassword.this.setVisible(false);
                     } else {
                         JOptionPane.showMessageDialog(null, "Invalid Old Password!");
                     }

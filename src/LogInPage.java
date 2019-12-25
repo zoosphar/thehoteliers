@@ -189,7 +189,7 @@ public class LogInPage extends javax.swing.JFrame {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/hms?autoReconnect=true&useSSL=false", "root", "aman123456");
             Statement st = con.createStatement();
-            String q = "delele from logged_in_hotel_id";
+            String q = "delete from logged_in_hotel_id";
             st.executeUpdate(q);
             q = "insert into logged_in_hotel_id(id) values(1)";
             st.executeUpdate(q);

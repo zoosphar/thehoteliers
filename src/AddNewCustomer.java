@@ -547,9 +547,9 @@ public class AddNewCustomer extends javax.swing.JFrame {
             ResultSet rs2 = st.executeQuery(r1);
             if(rs2.next()){
                 String cust_id = rs2.getString("cust_id");
-                String q1 = "insert into logged_in_hotel_id(cust_id) values ('"+ cust_id +"')";
+                String q1 = "update logged_in_hotel_id set cust_id = '"+ cust_id +"'";
                 st.executeUpdate(q1); 
-                JOptionPane.showMessageDialog(null, "Success1");
+                JOptionPane.showMessageDialog(null, "Created Customer Successfully");
             }
 //            
             

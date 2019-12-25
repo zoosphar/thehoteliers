@@ -25,6 +25,7 @@ public class NewBooking extends javax.swing.JFrame {
         initComponents();
         setCurrentLoginDetails();
         toggleEmployeeButton();
+        getCustomerData();
     }
     
     public void setCurrentLoginDetails(){
