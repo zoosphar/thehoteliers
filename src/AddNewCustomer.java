@@ -550,6 +550,9 @@ public class AddNewCustomer extends javax.swing.JFrame {
                 String q1 = "update logged_in_hotel_id set cust_id = '"+ cust_id +"'";
                 st.executeUpdate(q1); 
                 JOptionPane.showMessageDialog(null, "Created Customer Successfully");
+                AddNewCustomer.this.setVisible(false);
+                NewBooking h = new NewBooking();
+                h.setVisible(true);
             }
 //            
             

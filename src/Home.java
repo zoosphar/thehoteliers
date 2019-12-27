@@ -495,12 +495,13 @@ public class Home extends javax.swing.JFrame {
     private void SubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitButtonActionPerformed
          SubmitButton.setBorderPainted( false );
          String cust_phone = phone.getText();
-         try{
+         if(cust_phone.equals("")){
+            try{
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/hms?autoReconnect=true&useSSL=false", "root", "aman123456");
             Statement st = con.createStatement();
-        String q = "select cust_id from customer where cust_phone = '"+ cust_phone +"'";
-        ResultSet rs = st.executeQuery(q);
+            String q = "select cust_id from customer where cust_phone = '"+ cust_phone +"'";
+            ResultSet rs = st.executeQuery(q);
         if(rs.next()){
             String q1 = "update logged_in_hotel_id set cust_id = '"+ rs.getString("cust_id") +"'";
             st.executeUpdate(q1);
@@ -512,7 +513,11 @@ public class Home extends javax.swing.JFrame {
         }
         } catch(Exception e) {
             System.out.print(e);
-        }
+        } 
+         } else {
+            JOptionPane.showMessageDialog(null, "Enter the correct phone number!"); 
+         }
+         
     }//GEN-LAST:event_SubmitButtonActionPerformed
 
     private void SubmitButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitButton1ActionPerformed

@@ -247,10 +247,10 @@ public class UpdatePassword extends javax.swing.JFrame {
                     if(rs2.getString("emp_pass").equals(old_pass_st)){
                         q = "update employee set emp_pass = '"+ new_pass_st +"'";
                             int rs3 = st.executeUpdate(q);
-                             JOptionPane.showMessageDialog(null, "Created Customer Successfully");
-                             UpdatePassword.this.setVisible(false);
+                            JOptionPane.showMessageDialog(null, "Updated customer successfully!");
+                            UpdatePassword.this.setVisible(false);
                     } else {
-                        JOptionPane.showMessageDialog(null, "Invalid Old Password!");
+                            JOptionPane.showMessageDialog(null, "Invalid Old Password!");
                     }
                 }
             }

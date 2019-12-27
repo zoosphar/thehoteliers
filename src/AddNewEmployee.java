@@ -528,6 +528,9 @@ public class AddNewEmployee extends javax.swing.JFrame {
            String q = "insert into employee(emp_hotel_id, emp_name, emp_salary, emp_joining_date, emp_role, emp_phone) vlaues "
                    + "('"+ rs0.getString("id") +"', '"+ name.getText() +"', '"+ salary.getText() +"', '"+ join_date.getText() +"', '"+ role.getText() +"', '"+ phone.getText() +"')";
         int rs1 = st.executeUpdate(q);
+        JOptionPane.showMessageDialog(null, "Successfully Created Employee");
+        AddNewEmployee.this.setVisible(false);
+        new Employees().setVisible(true);
         } else {
             JOptionPane.showMessageDialog(null, "Some Error Occured! Try Again.");
         }

@@ -762,6 +762,7 @@ public class NewBooking extends javax.swing.JFrame {
                     String book_id = rs4.getString("book_id");
                     r = "update rooms set room_status = 'e', room_book_id = '"+ book_id +"' where not room_status = 'e' and room_id = (select room_id from (select * from rooms) as room where room_type = '"+ type.getSelectedItem() +"' limit 1)";
                     int rs3 = st.executeUpdate(r);
+                    JOptionPane.showMessageDialog(null, "Booking made successfully!");
                     NewBooking.this.setVisible(false);
                     new Bookings().setVisible(true);
                 } else {
